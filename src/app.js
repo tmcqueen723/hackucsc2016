@@ -6,6 +6,8 @@
  *              UCSC 2016 Hackathon.
  */
 
+//https://www.dropbox.com/s/fpqsz9nccjkq3l0/chat.json?dl=0
+
 var UI = require('ui');
 var ajax = require('ajax');
 
@@ -25,13 +27,7 @@ var card = new UI.Card({
 //call the thing
 display();
 
-card.on('click', 'down', function() {
-        console.log("clicked down");
-        top++;
-        if (top > 24) {top = 0;}
-        display();
-        });
-
+//On top button press, previous card.
 card.on('click', 'up', function() {
         console.log("clicked down");
         top--;
@@ -39,6 +35,21 @@ card.on('click', 'up', function() {
         display();
         });
     
+//On middle button press, return to base.
+card.on('click', 'select', function() {
+        console.log("clicked select");
+        top = 0;
+        display();
+        });
+
+//On bottom button press, next card
+card.on('click', 'down', function() {
+        console.log("clicked down");
+        top++;
+        if (top > 24) {top = 0;}
+        display();
+        });
+
 //This calls twitch and displays the channel at the 'top'
 //displays rank, name, game, and viewers
 function display(){
