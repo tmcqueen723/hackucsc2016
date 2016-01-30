@@ -1,7 +1,9 @@
 /**
- * Welcome to Pebble.js!
- *
- * This is where you write your app.
+ * Filename: app.js
+ * Developers:
+ * Date: 1/29/2016
+ * Description: An implementation of Twitch.tv on the Pebble Watch created for the
+ *              UCSC 2016 Hackathon.
  */
 
 var UI = require('ui');
@@ -17,24 +19,23 @@ var top = 0;
 // Create a Card with title and subtitle
 var card = new UI.Card({
   title:'Twitch Channels',
-  subtitle:'Fetching...'
+  body:'Fetching...'
 });
 
 //call the thing
 display();
 
-
 card.on('click', 'down', function() {
         console.log("clicked down");
         top++;
-        if(top > 24){top = 0};
+        if (top > 24) {top = 0;}
         display();
         });
 
 card.on('click', 'up', function() {
         console.log("clicked down");
         top--;
-        if(top < 0){top = 24};
+        if(top < 0){top = 24;}
         display();
         });
     
@@ -53,8 +54,8 @@ ajax(
     console.log('Successfully fetched twitch data!');
     //update the info
     card.title((top + 1) + ". " + data.streams[top].channel.name);
-    card.subtitle(data.streams[top].game + '\nViewers: ' + data.streams[top].viewers);
-    
+    //card.subtitle(data.streams[top].game + '\nViewers: ' + data.streams[top].viewers);
+    card.body(data.streams[top].game + '\nViewers: ' + data.streams[top].viewers);
   },
   function(error) {
     // Failure!
