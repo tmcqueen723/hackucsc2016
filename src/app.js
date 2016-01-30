@@ -26,7 +26,7 @@ ajax(
   function(data) {
     // Success!
     console.log('Successfully fetched twitch data!');
-    card.subtitle('Got HTML data.');
+    card.subtitle('We did it!');
   },
   function(error) {
     // Failure!

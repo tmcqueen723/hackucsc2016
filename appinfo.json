@@ -4,7 +4,7 @@
         ""
     ],
     "companyName": "accousin@ucsc.edu",
-    "longName": "tutorial",
+    "longName": "TwitchChat",
     "projectType": "pebblejs",
     "resources": {
         "media": [
@@ -32,7 +32,7 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "tutorial",
+    "shortName": "TwitchChat",
     "targetPlatforms": [
         "aplite",
         "basalt"
