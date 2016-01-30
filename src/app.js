@@ -8,12 +8,12 @@ var UI = require('ui');
 var ajax = require('ajax');
 
 // Construct URL
-var channelName = 'twitch';
-var URL = 'http://www.twitch.tv/' + channelName + '/chat?popout=';
+//var channelName = 'twitch';
+var URL = 'https://api.twitch.tv/kraken/streams/';
 
 // Create a Card with title and subtitle
 var card = new UI.Card({
-  title:'Twitch Chat',
+  title:'Twitch Channels',
   subtitle:'Fetching...'
 });
 
@@ -21,12 +21,15 @@ var card = new UI.Card({
 ajax(
   {
     url: URL,
-    type: 'html'
+    type: 'json'
   },
   function(data) {
     // Success!
     console.log('Successfully fetched twitch data!');
-    card.subtitle('We did it!');
+    //update the info
+    card.title(data.streams[0].channel.name)
+    //card.subtitle(data.streams[0].channel.logo);
+    
   },
   function(error) {
     // Failure!
