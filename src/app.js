@@ -26,6 +26,8 @@ var card = new UI.Card({
   body:'Fetching...'
 });
 
+var kappa = false;
+
 //call the thing
 display();
 
@@ -40,7 +42,16 @@ card.on('click', 'up', function() {
 //On middle button press, return to base.
 card.on('click', 'select', function() {
   console.log("click select");
-  chatDisplay();
+  if(!kappa){
+    kappa = true;
+    card.title('');
+    card.banner('images/kappa.png');
+  } else{
+      kappa = false;
+      card.banner('');
+      display();
+  }
+ // chatDisplay();
 });
 /*card.on('click', 'select', function() {
         console.log("clicked select");

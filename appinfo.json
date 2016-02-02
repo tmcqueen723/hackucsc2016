@@ -28,6 +28,11 @@
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
+            },
+            {
+                "file": "images/kappa.png",
+                "name": "IMAGES_KAPPA_PNG",
+                "type": "bitmap"
             }
         ]
     },
